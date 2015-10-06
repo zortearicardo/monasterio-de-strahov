@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>monasterio-de-strahov</title>
+  </head> 
+  <body>
+    <form method="post">
+        <label>
+            Digite seu nome:
+            <input type="text" name="name">
+        </label>
+        <label>
+            Digite sua idade:
+            <input type="number" name="age">
+        </label>
+        <input type="submit">
+    </form>
+    </hr>
+    {% for user in users %}
+        {{ user.name }} - {{ user.age }} 
+        </br>
+    {% endfor %}
+  </body>
+</html>
