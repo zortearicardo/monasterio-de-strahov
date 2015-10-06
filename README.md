@@ -1,1 +1,0 @@
-# monasterio-de-strahov
