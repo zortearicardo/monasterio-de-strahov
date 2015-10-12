@@ -38,7 +38,7 @@
 			<span>Nome:</span> <input type="text" class="input_text" name="nome" id="name"/> 
 	</label></br>
 	<p> </p> 	
-			<label> <span>Cpf:&nbsp&nbsp&nbsp &nbsp</span><input type="text" class="input_text" name="fone" id="fone"/> 
+			<label> <span>Cpf:&nbsp&nbsp&nbsp &nbsp</span><input type="text" class="input_text" name="cpf" id="cpf"/> 
 	</label> </br>
 		<p> </p> 
 			<label> <span>Fone:  &nbsp  </span> <input type="text" class="input_text" name="fone" id="fone"/> 
@@ -75,6 +75,11 @@
 	</label> 
 	</div> 
 </form>
+   </hr>
+    {% for user in users %}
+        {{ user.name }} - {{ user.age }} 
+        </br>
+    {% endfor %}
 </body> 
 </html>
 
