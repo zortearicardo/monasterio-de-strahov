@@ -33,15 +33,9 @@ class Handler(webapp2.RequestHandler):
 
 class User(db.Model):
     name = db.StringProperty( required = True )
-    cpf = db.StringProperty(required = True)
-	fone = db.StringProperty(required = True)
-    end = db.StringProperty(required = True)
+    age = db.IntegerProperty()
+    
 
-class Livro(db.Model):
-	titulo = db.StringProperty(required = True)
-	autor = db.StringProperty (required = True)
-	editora = db.StringProperty (required = True)
-	ano = db.StringProperty (required = True)
 class MainHandler(Handler):
 
     def get(self):
@@ -50,41 +44,16 @@ class MainHandler(Handler):
 
     def post(self):
         name = self.request.get('name')
-        cpf = self.request.get('cpf')
-		fone = self.request.get('fone')
-		end = self.request.get('end')
-		
-		titulo = self.request.get('titulo')
-		autor = self.request.get('autor')
-		editora = self.request.get('editora')
-		ano = self.request.get('ano')
+        age = self.request.get('age')
 
-        if name and cpf
-            user = User(name = name, cpf = cpf)
+        if name and age:
+            user = User(name = name, age = int(age))
             user.put()
-			 if fone and end
-				user = User(fone = fone, end = end)
-				user.put()
 
             self.redirect( '/' )
-				
 
         else:
             self.response.out.write( 'Erro: Ocorreu um erro no cadastro do usuario!' )
-			
-		
-		 if titulo and autor
-            livro = Livro(titulo = titulo, autor = autor)
-            livrp.put()
-			 if editora and ano
-				livro = Livro(editora = editora, ano = ano)
-				livro.put()
-
-            self.redirect( '/' )
-				
-
-        else:
-            self.response.out.write( 'Erro: Ocorreu um erro no cadastro do livro!' )
 
 
 
