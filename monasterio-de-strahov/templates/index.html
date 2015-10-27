@@ -1,52 +1,56 @@
-<html>
+<!--<html>
   <head>
     <title>monasterio-de-strahov</title>
   </head> 
   <body>
-<form name="meuForm" method="post" id="formulario"> 
-	<div class="box"> 
-		<h1>Cadastro de cliente:</h1>
-	<label>
-	<p> </p> 
-			<span>Nome:</span> <input type="text" class="input_text" name="nome" id="name"/> 
-	</label></br>
-	<p> </p> 	
-			<label> <span>Cpf:&nbsp&nbsp&nbsp &nbsp</span><input type="text" class="input_text" name="cpf" id="cpf"/> 
-	</label> </br>
-		<p> </p> 
-			<label> <span>Fone:  &nbsp  </span> <input type="text" class="input_text" name="fone" id="fone"/> 
-	</label> </br>
-		<p> </p> 
-			<label> <span>End:&nbsp&nbsp &nbsp</span> <input type="text" class="input_text" name="end" id="end"/> 
-	</label> </br>
-		<p> </p> 
-			<input type="button" name="botao-ok" value="Confirmar">
-			
-			
-			<h1>Cadastro De Livro:</h1>
-	<label>
-	<p> </p> 
-			<span>Titulo:&nbsp</span> <input type="text" class="input_text" name="titulo" id="titulo"/> 
-	</label></br>
-		<p> </p> 
-			<label> <span>Autor:&nbsp&nbsp&nbsp</span><input type="text" class="input_text" name="autor" id="autor"/> 
-	</label> </br>
-		<p> </p> 
-			<label> <span>Editora:</span> <input type="text" class="input_text" name="editora" id="editora"/> 
-	</label> </br>
-		<p> </p> 
-			<label> <span>Ano:&nbsp&nbsp &nbsp&nbsp</span> <input type="text" class="input_text" name="ano" id="ano"/> 
-	</label> </br>
-		<p> </p> 
-			<input type="button" name="botao-ok" value="Confirmar">
-		
-		
-
-	
-	<label> 
-			
-	</label> 
-	</div> 
-</form>
+    <form method="post">
+        <label>
+            Digite seu nome:
+            <input type="text" name="name">
+        </label>
+        <label>
+            Digite sua idade:
+            <input type="number" name="age">
+        </label>
+        <input type="submit">
+    </form>
+    </hr>
+    {% for user in users %}
+        {{ user.name }} - {{ user.age }} 
+        </br>
+    {% endfor %}
   </body>
 </html>
+-->
+
+
+<html> 
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+   <title>Monasterio de Strahov</title>
+</head>
+<body>
+
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='#'>Inicio</a></li>
+   <li><a href='/cadastro'>Cadastro</a></li>
+   <li><a href='#'>Sobre</a></li>
+   <li><a href='#'>Contato</a></li>
+</ul>
+</div>
+
+</body>
+<html>
+
+</body> 
+</html>
+
+
+
+
