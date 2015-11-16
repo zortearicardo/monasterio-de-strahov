@@ -34,62 +34,75 @@ class Handler(webapp2.RequestHandler):
 class User(db.Model):
     name = db.StringProperty( required = True )
     cpf = db.StringProperty(required = True)
-    fone = db.StringProperty(required = True)
+	fone = db.StringProperty(required = True)
     end = db.StringProperty(required = True)
 
 class Livro(db.Model):
-    titulo = db.StringProperty(required = True)
-    autor = db.StringProperty (required = True)
-    editora = db.StringProperty (required = True)
-    ano = db.StringProperty (required = True)
-    
-class CadastroHandler(Handler):
-    def get(self):
-        self.render('cadastro.html')
-        
-    def post(self):
+	titulo = db.StringProperty(required = True)
+	autor = db.StringProperty (required = True)
+	editora = db.StringProperty (required = True)
+	ano = db.StringProperty (required = True)
+	
+class CadastroClienteHandler(Handler):
+	def get(self):
+		self.render('cadastrocliente.html')
+		
+		def post(self):
         name = self.request.get('name')
         cpf = self.request.get('cpf')
-        fone = self.request.get('fone')
-        end = self.request.get('end')
-        
+		fone = self.request.get('fone')
+		end = self.request.get('end')
+		
+		
+        if name and cpf and fone and end:
+            user = User(name = name, cpf = cpf, fone = fone, end = end)
+            user.put()
+			self.redirect( '/cadastrocliente' )
+				
+
+        else:
+            self.response.out.write( 'Erro: Ocorreu um erro no cadastro do usuario!' )
+			
+		
+		
+
+class CadastroLivroHandler(Handler):
+    def get(self):
+        self.render('cadastrolivro.html')
+
+
         titulo = self.request.get('titulo')
         autor = self.request.get('autor')
         editora = self.request.get('editora')
         ano = self.request.get('ano')
 
-        if name and cpf and fone and end:
-            user = User(name = name, cpf = cpf, fone = fone, end = end)
-            user.put()
-            self.redirect( '/cadastro' )
-                
-
-        else:
-            self.response.out.write( 'Erro: Ocorreu um erro no cadastro do usuario!' )
-            
-        
         if titulo and autor and editora and ano:
             livro = Livro(titulo = titulo, autor = autor, editora = editora, ano = ano)
             livro.put()
-            self.redirect( '/cadastro' )
+            self.redirect( '/cadastrolivro' )
                 
 
         else:
             self.response.out.write( 'Erro: Ocorreu um erro no cadastro do livro!' )
 
-
-
-    
+	
 class MainHandler(Handler):
 
     def get(self):
         self.render('index.html')
 
+class ConsultaHandler(Handler):
+
+    def get(self):
+        self.render('consulta.html')
+
 
     
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/cadastro', CadastroHandler)
+    ('/', MainHandler)
+	('/consulta', ConsultaHandler)
+    ('/cadastrocliente', CadastroClienteHandler)
+    ('/cadastrolivro', CadastroLivroHandler)
 ], debug=True)
 
 
