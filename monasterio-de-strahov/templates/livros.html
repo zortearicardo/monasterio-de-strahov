@@ -14,7 +14,7 @@
 <ul>
    <li class='active'><a href='/'>Inicio</a></li>
    <li><a href='/cadastrocliente'>Cadastro de Cliente</a></li>
-   <li><a href='/cadastrolivro'>Cadastro de Livros</a></li>
+   <li><a href='/cadastrolivro'>Cadastro de Livro</a></li>
    <li><a href='/livros'>Livros</a></li>
 </ul>
 </div>
@@ -27,11 +27,6 @@
 
 
 
-    {% for user in users %}
-        {{ user.name }} - {{ user.cpf }} - {{ user.fone }} - {{ user.end }} 
-        
-    {% endfor %}
-	
 	   {% for livro in livros %}
         {{ livro.titulo }} - {{ livro.autor }} - {{ livro.editora }} - {{ livro.ano }} 
         

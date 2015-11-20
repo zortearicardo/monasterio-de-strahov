@@ -178,3 +178,13 @@
 #cssmenu.small-screen #menu-button.menu-opened:before {
   background: #dff2fa;
 }
+body {
+  background-image: url("bgbook.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+iframe{
+  position: absolute;
+  top: 300px;
+  right: 80px;
+}
